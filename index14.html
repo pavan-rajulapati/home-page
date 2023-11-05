@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+        }
+
+        button {
+            width: 7%;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            margin: 20px;
+        }
+        input:not(.search_btn){
+            width: 20%;
+            height: 30px;
+            margin-top: 10px;
+            position: absolute;
+            right: 10%;
+            border-radius: 10px;
+            background-color: transparent;
+            color: aqua;
+        }
+
+        button:hover:not(.search_btn){
+            border-bottom: 2px solid blue; 
+        }
+        input:hover{
+            border-color: aqua;
+        }
+        img{
+            position: absolute;
+            top: 52%;
+            right: 10%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        div{
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            width: 35%;
+            height: 40%;
+            font-size: 3rem;
+            color: pink;
+        }
+        .search_btn{
+            position: absolute;
+            right: 0px;
+            width: 6%;
+            height: 30px;
+            background-color: green;
+            margin-top: 13px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <button>home</button>
+    <button>contact</button>
+    <button>login</button>
+    <button>about</button>
+    <input type="text" name="search" id="search" placeholder="enter your name">  <!--  you can replace this to search bar as your requirments -->
+    <button class="search_btn">submit</button>
+    <img src="dora1.png" alt="" onmouseover="invite()" onmousedown="nothing()">
+    <div></div>
+    <script>
+
+        let image = document.querySelector('img');
+        const searchInput = document.querySelector('#search');
+        const submitBtn = document.querySelector('.search_btn');
+        
+        submitBtn.addEventListener("click", function() {
+            const inputValue = searchInput.value;
+            let div = document.querySelector('div');
+            div.innerHTML = "Hi "+inputValue+" Wellcome";
+            image.style.display = "block";
+        });
+
+        image.addEventListener("mousedown", invite);
+        image.addEventListener("mouseup", nothing);
+    </script>
+</body>
+</html>
